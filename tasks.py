@@ -33,13 +33,13 @@ def is_truthy(arg):
 
 
 # Use pyinvoke configuration for default values, see http://docs.pyinvoke.org/en/stable/concepts/configuration.html
-# Variables may be overwritten in invoke.yml or by the environment variables INVOKE_NAUTOBOT_DNS_MANAGER_xxx
-namespace = Collection("nautobot_dns_manager")
+# Variables may be overwritten in invoke.yml or by the environment variables INVOKE_NAUTOBOT_EXAMPLE_DNS_MANAGER_xxx
+namespace = Collection("nautobot_example_dns_manager")
 namespace.configure(
     {
-        "nautobot_dns_manager": {
+        "nautobot_example_dns_manager": {
             "nautobot_ver": "1.3.9",
-            "project_name": "nautobot_dns_manager",
+            "project_name": "nautobot_example_dns_manager",
             "python_ver": "3.7",
             "local": False,
             "compose_dir": os.path.join(os.path.dirname(__file__), "development"),
@@ -85,13 +85,13 @@ def docker_compose(context, command, **kwargs):
     build_env = {
         # Note: 'docker-compose logs' will stop following after 60 seconds by default,
         # so we are overriding that by setting this environment variable.
-        "COMPOSE_HTTP_TIMEOUT": context.nautobot_dns_manager.compose_http_timeout,
-        "NAUTOBOT_VER": context.nautobot_dns_manager.nautobot_ver,
-        "PYTHON_VER": context.nautobot_dns_manager.python_ver,
+        "COMPOSE_HTTP_TIMEOUT": context.nautobot_example_dns_manager.compose_http_timeout,
+        "NAUTOBOT_VER": context.nautobot_example_dns_manager.nautobot_ver,
+        "PYTHON_VER": context.nautobot_example_dns_manager.python_ver,
     }
-    compose_command = f'docker-compose --project-name {context.nautobot_dns_manager.project_name} --project-directory "{context.nautobot_dns_manager.compose_dir}"'
-    for compose_file in context.nautobot_dns_manager.compose_files:
-        compose_file_path = os.path.join(context.nautobot_dns_manager.compose_dir, compose_file)
+    compose_command = f'docker-compose --project-name {context.nautobot_example_dns_manager.project_name} --project-directory "{context.nautobot_example_dns_manager.compose_dir}"'
+    for compose_file in context.nautobot_example_dns_manager.compose_files:
+        compose_file_path = os.path.join(context.nautobot_example_dns_manager.compose_dir, compose_file)
         compose_command += f' -f "{compose_file_path}"'
     compose_command += f" {command}"
     print(f'Running docker-compose command "{command}"')
@@ -100,7 +100,7 @@ def docker_compose(context, command, **kwargs):
 
 def run_command(context, command, **kwargs):
     """Wrapper to run a command locally or inside the nautobot container."""
-    if is_truthy(context.nautobot_dns_manager.local):
+    if is_truthy(context.nautobot_example_dns_manager.local):
         context.run(command, **kwargs)
     else:
         # Check if nautobot is running, no need to start another nautobot container to run a command
@@ -132,7 +132,7 @@ def build(context, force_rm=False, cache=True):
     if force_rm:
         command += " --force-rm"
 
-    print(f"Building Nautobot with Python {context.nautobot_dns_manager.python_ver}...")
+    print(f"Building Nautobot with Python {context.nautobot_example_dns_manager.python_ver}...")
     docker_compose(context, command)
 
 
@@ -251,7 +251,7 @@ def createsuperuser(context, user="admin"):
 )
 def makemigrations(context, name=""):
     """Perform makemigrations operation in Django."""
-    command = "nautobot-server makemigrations nautobot_dns_manager"
+    command = "nautobot-server makemigrations nautobot_example_dns_manager"
 
     if name:
         command += f" --name {name}"

@@ -1,4 +1,4 @@
-"""Plugin declaration for nautobot_dns_manager."""
+"""Plugin declaration for nautobot_example_dns_manager."""
 # Metadata is inherited from Nautobot. If not including Nautobot in the environment, this should be added
 try:
     from importlib import metadata
@@ -11,15 +11,15 @@ __version__ = metadata.version(__name__)
 from nautobot.extras.plugins import PluginConfig
 
 
-class NautobotDNSManagerConfig(PluginConfig):
-    """Plugin configuration for the nautobot_dns_manager plugin."""
+class NautobotExampleDNSManagerConfig(PluginConfig):
+    """Plugin configuration for the nautobot_example_dns_manager plugin."""
 
-    name = "nautobot_dns_manager"
-    verbose_name = "Nautobot DNS Manager"
+    name = "nautobot_example_dns_manager"
+    verbose_name = "Nautobot Example DNS Manager"
     version = __version__
     author = "Network to Code, LLC"
-    description = "Nautobot DNS Manager."
-    base_url = "dns-manager"
+    description = "Nautobot Example DNS Manager."
+    base_url = "example-dns-manager"
     required_settings = []
     min_version = "1.2.0"
     max_version = "1.9999"
@@ -27,4 +27,4 @@ class NautobotDNSManagerConfig(PluginConfig):
     caching_config = {}
 
 
-config = NautobotDNSManagerConfig  # pylint:disable=invalid-name
+config = NautobotExampleDNSManagerConfig  # pylint:disable=invalid-name
