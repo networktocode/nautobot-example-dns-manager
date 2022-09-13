@@ -38,9 +38,9 @@ namespace = Collection("nautobot_example_dns_manager")
 namespace.configure(
     {
         "nautobot_example_dns_manager": {
-            "nautobot_ver": "1.3.9",
+            "nautobot_ver": "1.4.2",
             "project_name": "nautobot_example_dns_manager",
-            "python_ver": "3.7",
+            "python_ver": "3.8",
             "local": False,
             "compose_dir": os.path.join(os.path.dirname(__file__), "development"),
             "compose_files": [
