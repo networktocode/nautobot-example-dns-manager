@@ -1,19 +1,17 @@
 """DNS Organizational Model"""
 
-from tkinter.messagebox import RETRY
 from django.db import models
-from nautonot.core.models.generics import PrimaryModel
-from django.urls import reverse
-from nautobot.core.models
 
-from nautobot.core.models.generics import OrganizationalModel
-from nautobot.core.ipam import IPAddress
+from django.urls import reverse
+from nautobot.core.fields import AutoSlugField
+from nautobot.core.models.generics import PrimaryModel
 
 class DnsZoneModel(PrimaryModel):
     """Model to represent a DNS Zone and SOA record.
 
     """
     name = models.CharField()
+    slug = AutoSlugField(populate_from='name')
     mname = models.CharField()
     rname = models.EmailField()
     serial = models.PositiveBigIntegerField(min=1, max=4294967295)
@@ -23,17 +21,25 @@ class DnsZoneModel(PrimaryModel):
     ttl = models.PositiveIntegerField(min=300, max=2147483647, default=3600)
 
 
-class ARecordModel(OrganizationalModel):
+class ARecordModel(PrimaryModel):
+    """Model for representing A records. 
+    
+    """
     name = models.CharField()
-    address = models.ForeignKey(to=IPAddress)
+    address = models.ForeignKey(to="ipam.IPAddress")
     ttl = models.PositiveIntegerField(min=300, max=2147483647, default=14400)
 
 
-class PTRRecordModel(OrganizationalModel):
-    address = models.ForeignKey(to=IPAddress)
+class PTRRecordModel(PrimaryModel):
+    """Model for 
+
+    Args:
+        OrganizationalModel (_type_): _description_
+    """
+    address = models.ForeignKey(to="ipam.IPAddress", on_delete=models.CASCADE)
 
 
-class CNameRecordModel(OrganizationalModel):
+class CNameRecordModel(PrimaryModel):
     name = models.CharField()
     value = models.CharField()
     ttl = models.PositiveIntegerField(min=300, max=2147483647, default=14400)
