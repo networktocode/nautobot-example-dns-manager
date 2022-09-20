@@ -14,11 +14,35 @@ menu_items = (
                         link="plugins:nautobot_example_dns_manager:dnszonemodel_list",
                         name="DNS Zones",
                         permissions=[],
+                        buttons=(
+                            NavMenuAddButton(
+                                link="plugins:nautobot_example_dns_manager:dnszonemodel_add",
+                                permissions=[],
+                            ),
+                        ), # add an add button
+                    ),
+                    # add each record individually
+                    NavMenuItem(
+                        link="plugins:nautobot_example_dns_manager:arecordmodel_list",
+                        name="A Records",
+                        permissions=[],
+                        buttons=(
+                            NavMenuAddButton(
+                                link="plugins:nautobot_example_dns_manager:arecordmodel_add",
+                                permissions=[],
+                            ),
+                        ),
                     ),
                     NavMenuItem(
-                        link="plugins:nautobot_example_dns_manager:records",
-                        name="DNS Records",
+                        link="plugins:nautobot_example_dns_manager:cnamerecordmodel_list",
+                        name="CNAME Records",
                         permissions=[],
+                        buttons=(
+                            NavMenuAddButton(
+                                link="plugins:nautobot_example_dns_manager:cnamerecordmodel_add",
+                                permissions=[],
+                            ),
+                        ),
                     ),
                 ),
             ),

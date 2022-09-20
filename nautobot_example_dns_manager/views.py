@@ -2,12 +2,13 @@
 
 from nautobot.core.views import mixins as view_mixins
 
-from .models import DnsZoneModel, ARecordModel, PTRRecordModel, CNameRecordModel
+from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 
 class DnsZoneModelUIViewSet(view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
     view_mixins.ObjectDestroyViewMixin,
+    view_mixins.ObjectBulkDestroyViewMixin,
 ):
     queryset = DnsZoneModel.objects.all()
 
@@ -15,19 +16,16 @@ class DnsZoneModelUIViewSet(view_mixins.ObjectListViewMixin,
 class ARecordModelUIViewSet(view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
-    view_mixins.ObjectDestroyViewMixin,):
+    view_mixins.ObjectDestroyViewMixin,
+    view_mixins.ObjectBulkDestroyViewMixin,
+):
     queryset = ARecordModel.objects.all()
-
-
-class PTRRecordModelUIViewSet(view_mixins.ObjectListViewMixin,
-    view_mixins.ObjectDetailViewMixin,
-    view_mixins.ObjectEditViewMixin,
-    view_mixins.ObjectDestroyViewMixin,):
-    queryset = PTRRecordModel.objects.all()
 
 
 class CNameRecordModelUIViewSet(view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
-    view_mixins.ObjectDestroyViewMixin,):
+    view_mixins.ObjectDestroyViewMixin,
+    view_mixins.ObjectBulkDestroyViewMixin,
+):
     queryset = CNameRecordModel.objects.all()

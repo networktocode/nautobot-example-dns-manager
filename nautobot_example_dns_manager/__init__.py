@@ -21,7 +21,7 @@ class NautobotExampleDNSManagerConfig(PluginConfig):
     description = "Nautobot Example DNS Manager."
     base_url = "example-dns-manager"
     required_settings = []
-    min_version = "1.2.0"
+    min_version = "1.4.2"
     max_version = "1.9999"
     default_settings = {}
     caching_config = {}
