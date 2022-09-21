@@ -19,9 +19,8 @@ menu_items = (
                                 link="plugins:nautobot_example_dns_manager:dnszonemodel_add",
                                 permissions=[],
                             ),
-                        ), # add an add button
+                        ), 
                     ),
-                    # add each record individually
                     NavMenuItem(
                         link="plugins:nautobot_example_dns_manager:arecordmodel_list",
                         name="A Records",
