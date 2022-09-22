@@ -4,7 +4,7 @@ from nautobot.core.views import mixins as view_mixins
 
 from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 from .tables import DnsZoneModelTable, ARecordModelTable, CNameRecordModelTable
-from .forms import DnsZoneModelForm, ARecordModelForm
+from .forms import DnsZoneModelForm, ARecordModelForm, CNameRecordModelForm
 from .api import serializers
 
 
@@ -43,3 +43,5 @@ class CNameRecordModelUIViewSet(
 ):
     queryset = CNameRecordModel.objects.all()
     table_class = CNameRecordModelTable
+    form_class = CNameRecordModelForm
+    serializer_class = serializers.CNameRecordModelSerializer

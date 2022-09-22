@@ -3,7 +3,7 @@
 from nautobot.extras.forms import NautobotModelForm
 from nautobot.utilities.forms import CommentField, SlugField
 
-from .models import DnsZoneModel, ARecordModel
+from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 
 
 class DnsZoneModelForm(NautobotModelForm):
@@ -33,5 +33,19 @@ class ARecordModelForm(NautobotModelForm):
             "slug",
             "zone",
             "address",
+            "ttl",
+        ]
+
+
+class CNameRecordModelForm(NautobotModelForm):
+    slug = SlugField()
+
+    class Meta:
+        model = CNameRecordModel
+        fields = [
+            "name",
+            "slug",
+            "zone",
+            "value",
             "ttl",
         ]
