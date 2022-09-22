@@ -1,0 +1,36 @@
+{% extends 'generic/object_retrieve.html' %}
+{% load helpers %}
+
+{% block content_left_page %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>DNS Zone Model</strong>
+            </div>
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <td>Zone Name Server</td>
+                    <td>{{ object.mname|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>Admin Email</td>
+                    <td>{{ object.rname|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>Refresh Time (s)</td>
+                    <td>{{ object.refresh|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>Retry Time (s)</td>
+                    <td>{{ object.retry|placeholder }}</td>
+                </tr>         
+                <tr>
+                    <td>Expire Time (s)</td>
+                    <td>{{ object.expire|placeholder }}</td>
+                </tr>         
+                <tr>
+                    <td>Time to Live (s)</td>
+                    <td>{{ object.ttl|placeholder }}</td>
+                </tr>                                                                                                                 
+            </table>
+        </div>
+{% endblock content_left_page %}
