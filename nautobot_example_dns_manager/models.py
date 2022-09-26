@@ -49,7 +49,7 @@ class ARecordModel(PrimaryModel):
         max_length=200, help_text="Name of the Record. Will inherit the domain from the zone of which it is a part."
     )
     address = models.ForeignKey(to="ipam.IPAddress", on_delete=models.CASCADE, help_text="IP address for the record.")
-    ttl = models.PositiveIntegerField(
+    ttl = models.IntegerField(
         validators=[MinValueValidator(300), MaxValueValidator(2147483647)], default=14400, help_text="Time To Live."
     )
 
@@ -67,7 +67,7 @@ class CNameRecordModel(PrimaryModel):
     name = models.CharField(help_text="DNS name of the CName record.", max_length=200)
     slug = AutoSlugField(populate_from="name")
     value = models.CharField(help_text="FQDN of where the CName record redirects to.", max_length=253)
-    ttl = models.PositiveIntegerField(
+    ttl = models.IntegerField(
         validators=[MinValueValidator(300), MaxValueValidator(2147483647)], default=14400, help_text="Time To Live."
     )
 
