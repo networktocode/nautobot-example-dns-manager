@@ -19,6 +19,7 @@ class DnsZoneModelUIViewSet(
     table_class = DnsZoneModelTable
     form_class = DnsZoneModelForm
     serializer_class = serializers.DnsZoneModelSerializer
+    action_buttons = ("add",)
 
 
 class ARecordModelUIViewSet(
@@ -32,6 +33,7 @@ class ARecordModelUIViewSet(
     table_class = ARecordModelTable
     form_class = ARecordModelForm
     serializer_class = serializers.ARecordModelSerializer
+    action_buttons = ("add",)
 
 
 class CNameRecordModelUIViewSet(
@@ -45,3 +47,4 @@ class CNameRecordModelUIViewSet(
     table_class = CNameRecordModelTable
     form_class = CNameRecordModelForm
     serializer_class = serializers.CNameRecordModelSerializer
+    action_buttons = ("add",)
