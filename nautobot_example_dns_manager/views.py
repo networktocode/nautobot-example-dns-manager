@@ -4,7 +4,15 @@ from nautobot.core.views import mixins as view_mixins
 
 from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 from .tables import DnsZoneModelTable, ARecordModelTable, CNameRecordModelTable
-from .forms import DnsZoneModelForm, ARecordModelForm, CNameRecordModelForm
+from .forms import (
+    ARecordModelFilterForm,
+    CNameRecordModelFilterForm,
+    DnsZoneModelFilterForm,
+    DnsZoneModelForm,
+    ARecordModelForm,
+    CNameRecordModelForm,
+)
+from .filters import ARecordModelFilterSet, CNameRecordModelFilterSet, DnsZoneModelFilterSet
 from .api import serializers
 
 
@@ -19,6 +27,8 @@ class DnsZoneModelUIViewSet(
     table_class = DnsZoneModelTable
     form_class = DnsZoneModelForm
     serializer_class = serializers.DnsZoneModelSerializer
+    filterset_class = DnsZoneModelFilterSet
+    filterset_form_class = DnsZoneModelFilterForm
 
 
 class ARecordModelUIViewSet(
@@ -32,6 +42,8 @@ class ARecordModelUIViewSet(
     table_class = ARecordModelTable
     form_class = ARecordModelForm
     serializer_class = serializers.ARecordModelSerializer
+    filterset_class = ARecordModelFilterSet
+    filterset_form_class = ARecordModelFilterForm
 
 
 class CNameRecordModelUIViewSet(
@@ -45,3 +57,5 @@ class CNameRecordModelUIViewSet(
     table_class = CNameRecordModelTable
     form_class = CNameRecordModelForm
     serializer_class = serializers.CNameRecordModelSerializer
+    filterset_class = CNameRecordModelFilterSet
+    filterset_form_class = CNameRecordModelFilterForm

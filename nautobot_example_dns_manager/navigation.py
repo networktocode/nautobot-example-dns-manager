@@ -19,7 +19,7 @@ menu_items = (
                                 link="plugins:nautobot_example_dns_manager:dnszonemodel_add",
                                 permissions=[],
                             ),
-                        ), 
+                        ),
                     ),
                     NavMenuItem(
                         link="plugins:nautobot_example_dns_manager:arecordmodel_list",
