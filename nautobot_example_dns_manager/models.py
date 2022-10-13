@@ -29,7 +29,7 @@ class DnsZoneModel(PrimaryModel):
         default=3600000,
         help_text="Number of seconds after which secondary name servers should stop answering request for this zone if the master does not respond. This value must be bigger than the sum of Refresh and Retry.",
     )
-    ttl = models.PositiveIntegerField(
+    ttl = models.IntegerField(
         validators=[MinValueValidator(300), MaxValueValidator(2147483647)], default=3600, help_text="Time To Live."
     )
 
