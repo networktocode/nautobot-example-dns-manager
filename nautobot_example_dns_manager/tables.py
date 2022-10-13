@@ -6,7 +6,7 @@ from nautobot.utilities.tables import BaseTable, ToggleColumn
 
 from .models import DnsZoneModel
 
-class DnsZoneModelTable(BaseTable):
 
+class DnsZoneModelTable(BaseTable):
     class Meta(BaseTable.Meta):
         model = DnsZoneModel

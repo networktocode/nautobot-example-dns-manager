@@ -5,7 +5,9 @@ from nautobot.core.views import mixins as view_mixins
 from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 from .tables import DnsZoneModelTable
 
-class DnsZoneModelUIViewSet(view_mixins.ObjectListViewMixin,
+
+class DnsZoneModelUIViewSet(
+    view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
     view_mixins.ObjectDestroyViewMixin,
@@ -15,7 +17,8 @@ class DnsZoneModelUIViewSet(view_mixins.ObjectListViewMixin,
     table_class = DnsZoneModelTable
 
 
-class ARecordModelUIViewSet(view_mixins.ObjectListViewMixin,
+class ARecordModelUIViewSet(
+    view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
     view_mixins.ObjectDestroyViewMixin,
@@ -24,7 +27,8 @@ class ARecordModelUIViewSet(view_mixins.ObjectListViewMixin,
     queryset = ARecordModel.objects.all()
 
 
-class CNameRecordModelUIViewSet(view_mixins.ObjectListViewMixin,
+class CNameRecordModelUIViewSet(
+    view_mixins.ObjectListViewMixin,
     view_mixins.ObjectDetailViewMixin,
     view_mixins.ObjectEditViewMixin,
     view_mixins.ObjectDestroyViewMixin,
