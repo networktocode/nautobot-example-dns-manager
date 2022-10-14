@@ -1,0 +1,24 @@
+{% extends 'generic/object_retrieve.html' %}
+{% load helpers %}
+
+{% block content_left_page %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>A Record Model</strong>
+            </div>
+            <table class="table table-hover panel-body attr-table">
+                <tr>
+                    <td>Zone Name</td>
+                    <td>{{ object.zone|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>IP Address</td>
+                    <td>{{ object.address|placeholder }}</td>
+                </tr>
+                <tr>
+                    <td>Time to Live (s)</td>
+                    <td>{{ object.ttl|placeholder }}</td>
+                </tr>                                                                                                                 
+            </table>
+        </div>
+{% endblock content_left_page %}
