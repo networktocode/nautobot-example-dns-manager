@@ -1,7 +1,7 @@
 """Nautobot Example DNS Manager Forms."""
 
 from nautobot.extras.forms import NautobotModelForm
-from nautobot.utilities.forms import CommentField, SlugField
+from nautobot.utilities.forms import SlugField
 
 from .models import DnsZoneModel, ARecordModel, CNameRecordModel
 
